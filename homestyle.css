@@ -5,8 +5,8 @@
     padding: 0;
     font-family: "Roboto", sans-serif;
     /* box-sizing: border-box; */
-    
-    
+
+
 }
 
 :root {
@@ -16,9 +16,9 @@
 body {
     background-color: black;
     color: white;
-    height:100%;
+    height: 100%;
     overflow-y: hidden;
-    
+
 }
 
 /* new home css for the player user interface */
@@ -167,7 +167,7 @@ input:focus {
     top: 0;
     background-color: var(--bgcolor);
     z-index: 1000;
-   
+
 }
 
 .heading h3 {
@@ -248,7 +248,7 @@ input:focus {
     width: 25px !important;
     position: absolute;
     left: 25%;
-    
+
     opacity: 0;
 }
 
@@ -278,9 +278,9 @@ input:focus {
     fill: #1ec758;
 }
 
-.p1{
-    font-weight:300;
-    font-size:16px;
+.p1 {
+    font-weight: 300;
+    font-size: 16px;
 }
 
 .p1:active {
@@ -437,7 +437,7 @@ input:focus {
     border-radius: 30px;
     font-weight: bold;
     font-size: 14px;
-    padding: 8px 20px ;
+    padding: 8px 20px;
 }
 
 .btns .login {
@@ -703,20 +703,23 @@ input:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:8px;
+    gap: 8px;
 }
 
-.player-card{
-    padding:0px !important;
+.player-card {
+    padding: 0px !important;
 }
-.player-card:hover{
+
+.player-card:hover {
     background-color: transparent;
 }
-.player-card:hover .overlay{
-   
-        opacity: 0 !important;
-    
+
+.player-card:hover .overlay {
+
+    opacity: 0 !important;
+
 }
+
 .player-controls {
     display: flex;
     gap: 20px;
@@ -751,7 +754,7 @@ input:focus {
     width: 16px;
 }
 
-.player-btns:hover .player-svg{
+.player-btns:hover .player-svg {
     fill: #ffffff;
 }
 
@@ -763,35 +766,36 @@ input:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:5px;
+    gap: 5px;
 }
-.volume-scroll{
-    width:3rem;
+
+.volume-scroll {
+    width: 3rem;
     /* border:2px solid  #4d4c4c; */
-    border:2px solid  white;
+    border: 2px solid white;
     border-radius: 8px;
     position: relative;
     cursor: pointer;
 }
 
-.volume-circle{
-    width:8px;
-    height:8px;
-    background-color:white;
+.volume-circle {
+    width: 8px;
+    height: 8px;
+    background-color: white;
     position: absolute;
     border-radius: 50%;
-   top:-4px;
-    left:98%;
+    top: -4px;
+    left: 98%;
     opacity: 0;
     transition: left 0.2s ease-in-out;
 }
 
-.volume-scroll:hover .volume-circle{
+.volume-scroll:hover .volume-circle {
     opacity: 1;
 }
 
-.volume-scroll:hover{
-    border:2px solid  #1dd05e;
+.volume-scroll:hover {
+    border: 2px solid #1dd05e;
 }
 
 .controls {
@@ -800,28 +804,29 @@ input:focus {
 }
 
 
-.bar{
+.bar {
     width: 38rem;
     border: 2px solid #4d4c4c;
-    height:0px !important;
+    height: 0px !important;
     position: relative;
     border-radius: 8px;
     cursor: pointer;
     /* z-index: 10; */
 }
 
-.bar-circle{
-    width:12px;
-    height:12px;
+.bar-circle {
+    width: 12px;
+    height: 12px;
     background-color: white;
     position: absolute;
     border-radius: 50%;
-   top:-6px;
-    left:-1%;
+    top: -6px;
+    left: -1%;
     opacity: 0;
     transition: left 0.2s ease-in-out;
 }
-.bar:hover .bar-circle{
+
+.bar:hover .bar-circle {
     opacity: 1;
 }
 
@@ -831,51 +836,51 @@ input:focus {
 
 }
 
-.seekbar{
+.seekbar {
     display: flex;
     align-items: center;
-    gap:18px;
+    gap: 18px;
 }
 
-.startTime{
+.startTime {
     font-size: 12px;
-    color:#b3b3b3;
-    font-weight:700;
+    color: #b3b3b3;
+    font-weight: 700;
 }
 
-.endTime{
+.endTime {
     font-size: 12px;
-    color:#b3b3b3;
-    font-weight:700;
+    color: #b3b3b3;
+    font-weight: 700;
 }
 
-.play-card{
-    width:15% !important;
+.play-card {
+    width: 15% !important;
 }
 
-.nav .hamburger-img{
+.nav .hamburger-img {
 
     width: 20px;
     padding-left: 15px;
     display: none;
 }
 
-.widthbar{
-    
+.widthbar {
+
     border: 2px solid white;
     top: -2px;
     left: -2px;
     width: 0px;
-    transition: 0.2s ;
+    transition: 0.2s;
 }
 
-.bar:hover .widthbar{
-    border:2px solid  #1dd05e;
+.bar:hover .widthbar {
+    border: 2px solid #1dd05e;
 }
 
 
-.range{
-    display:flex;
+.range {
+    display: flex;
 }
 
 
@@ -886,279 +891,341 @@ input[type="range"] {
     background: linear-gradient(to right, #1ec758 100%, #ccc 50%);
     border-radius: 5px;
     outline: none;
-  }
-  
-  /* WebKit (Chrome, Safari) */
-  input[type="range"]::-webkit-slider-thumb {
+}
+
+/* WebKit (Chrome, Safari) */
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 12px; /* ⬅️ change circle size */
+    height: 12px;
+    /* ⬅️ change circle size */
     width: 12px;
     border-radius: 50%;
-    background: white; /* ⬅️ circle color */
+    background: white;
+    /* ⬅️ circle color */
     cursor: pointer;
-    margin-top: -1px; /* adjust to align thumb */
-  }
-  
-  /* Firefox */
-  input[type="range"]::-moz-range-thumb {
+    margin-top: -1px;
+    /* adjust to align thumb */
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
     height: 12px;
     width: 12px;
     border-radius: 50%;
     background: #1ec758;
     cursor: pointer;
-  }
-  
-  input[type="range"]::-moz-range-track {
+}
+
+input[type="range"]::-moz-range-track {
     height: 4px;
     background: #ccc;
-  }
-  
-  /* Internet Explorer */
-  input[type="range"]::-ms-thumb {
+}
+
+/* Internet Explorer */
+input[type="range"]::-ms-thumb {
     height: 12px;
     width: 12px;
     border-radius: 50%;
     background: #1ec758;
-  }
-  
-  input[type="range"]::-ms-fill-lower {
+}
+
+input[type="range"]::-ms-fill-lower {
     background: #1ec758;
-  }
-  
-  input[type="range"]::-ms-fill-upper {
+}
+
+input[type="range"]::-ms-fill-upper {
     background: #ccc;
-  }
+}
 
 
-@media (max-width:1265px){
-    .right{
-        width:100vw;
+@media (max-width:1265px) {
+    .right {
+        width: 100vw;
     }
-    .left{
+
+    .left {
         /* background-color: red; */
-        position:absolute;
-        left:-100%;
+        position: absolute;
+        left: -100%;
         transition: all 0.3s ease-in-out;
         z-index: 3;
     }
-    .play-card .playlist-card-content p{
-        font-size:14px;
+
+    .play-card .playlist-card-content p {
+        font-size: 14px;
     }
 
-    .bar{
-        width:30vw;
+    .bar {
+        width: 30vw;
     }
-    .hamburger-img{
+
+    .hamburger-img {
         display: block !important;
     }
-    .widthbar{
+
+    .widthbar {
         width: 0;
     }
 }
 
-@media (max-width:1095px)
-{
-    
-    .player-card .playlist-card-content p{
-        display : none;
+@media (max-width:1095px) {
+
+    .player-card .playlist-card-content p {
+        display: none;
     }
-    .button-premium{
+
+    .button-premium {
         font-size: 10px !important;
     }
-    .signup{
+
+    .signup {
         font-size: 10px !important;
     }
-    .btns{
-        gap:7px;
+
+    .btns {
+        gap: 7px;
     }
-    .search-input span input{
-        width:30vh;
+
+    .search-input span input {
+        width: 30vh;
     }
 }
 
-@media (max-width:1000px){
-    .playerbar{
-        
-        gap:35px;
+@media (max-width:1000px) {
+    .playerbar {
+
+        gap: 35px;
     }
 
-    .controls{
-        gap:5px;
+    .controls {
+        gap: 5px;
     }
-    .search-input span input{
-        width:25vh;
+
+    .search-input span input {
+        width: 25vh;
     }
-    
-    .btns{
-        gap:0;
+
+    .btns {
+        gap: 0;
     }
-    .player-card-img{
+
+    .player-card-img {
         width: 45px !important;
         height: 45px !important;
     }
 }
 
-@media (max-width:860px)
-{
-    .search-input span input{
-        width:15vh;
+@media (max-width:860px) {
+    .search-input span input {
+        width: 15vh;
     }
-    .search-input span input{
-        font-size:10px;
-    }
-    .play-card .playlist-card-content p{
-        font-size:11px;
-    }
-    .left{
-        width:35vw;
-    }
-    
-}
 
-@media(max-width:710px)
-{
-    .left{
-        width: 40vw;
-    }
-    .search-input span input{
-        width:4.5vh;
-    }
-    .search-input span input{
+    .search-input span input {
         font-size: 10px;
     }
-    .button-premium{
+
+    .play-card .playlist-card-content p {
+        font-size: 11px;
+    }
+
+    .left {
+        width: 35vw;
+    }
+
+    .footerNav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media(max-width:710px) {
+    .left {
+        width: 40vw;
+    }
+
+    .search-input span input {
+        width: 4.5vh;
+    }
+
+    .search-input span input {
+        font-size: 10px;
+    }
+
+    .button-premium {
         font-size: 8px !important;
         padding: 8px 10px !important;
     }
-    .p2{
-        display:none;
+
+    .p2 {
+        display: none;
     }
-    .p1{
+
+    .p1 {
         font-size: 14px;
     }
-    .display-controls{
-        display:none;
+
+    .display-controls {
+        display: none;
     }
-    .footerNav{
+
+    .footerNav {
         flex-direction: column;
         /* gap:20px; */
     }
-    .footerSectionspan{
-        font-size:12px;
-    }
-    .footerSection{
-        gap:20px;
-    }
-    .footerAtag{
-        font-size:10px;
-    }
-    input[type="range"] {
-        width:55px;
-    }
-}
 
-@media (max-width:550px)
-{
-    .left{
-        width:80vw;
-    }
-    .search-input span input{
-        width:8vh;
-    }
-    .logo{
-        display:none;
-    }
-    .line{
-        display:none;
-    }
-    .button-premium{
-        display:none;
-    }
-    .display-controls{
-        display:none;
-    }
-    .volume-scroll{
-        display:none;
-    }
-
-    .volume button{
-        margin-right:10px;
-    }
-    .footerNav{
-        flex-direction: column;
-        /* gap:20px; */
-    }
-    .footerSectionspan{
-        font-size:12px;
-    }
-    .footerSection{
-        gap:20px;
-    }
-    .player-btns{
-        width:12px
-    }
-    .player-play-btn{
-        width:25px !important;
-    }
-    .player-controls{
-        gap:15px;
-    }
-    .player{
-        gap:6px;
-    }
-    .startTime{
-        font-size:10px;
-    }
-    .endTime{
-        font-size: 10px;
-    }
-    .footerAtag{
-        font-size:10px;
-    }
-    .spotifylikedheading img{
-        width: 100px !important;
-    }
-    .spotifylikedheading .h1{
-        font-size:50px;
-    }
-    .card{
-        width:100px;
-    }
-    .card .title{
+    .footerSectionspan {
         font-size: 12px;
     }
-    .encore-text-small-artist a{
-        font-size:10px;
+
+    .footerSection {
+        gap: 20px;
     }
-    .card img.circle {
-        height:100px;
-    }
-    .description {
+
+    .footerAtag {
         font-size: 10px;
-    } 
-    .playerbar{
-        padding-right: 40px;
     }
-   
-    .volume{
-        flex-direction: column;
-    }
-    input[type="range"]{
-        width:30px !important;
+
+    input[type="range"] {
+        width: 55px;
     }
 }
 
-@media (max-width:360px){
-    .search-input span input{
-        width:1vh;
+@media (max-width:550px) {
+    .left {
+        width: 80vw;
     }
-    .volume button{
-        margin-right:2px;
+
+    .search-input span input {
+        width: 8vh;
     }
-    .play-card .playlist-card-content p{
-        font-size:10px;
+
+    .logo {
+        display: none;
     }
-    .playerbar{
-        padding-right:120px;
+
+    .line {
+        display: none;
+    }
+
+    .button-premium {
+        display: none;
+    }
+
+    .display-controls {
+        display: none;
+    }
+
+    .volume-scroll {
+        display: none;
+    }
+
+    .volume button {
+        margin-right: 10px;
+    }
+
+    .footerNav {
+        flex-direction: column;
+        /* gap:20px; */
+    }
+
+    .footerSectionspan {
+        font-size: 12px;
+    }
+
+    .footerSection {
+        gap: 20px;
+    }
+
+    .player-btns {
+        width: 12px
+    }
+
+    .player-play-btn {
+        width: 25px !important;
+    }
+
+    .player-controls {
+        gap: 15px;
+    }
+
+    .player {
+        gap: 6px;
+    }
+
+    .startTime {
+        font-size: 10px;
+    }
+
+    .endTime {
+        font-size: 10px;
+    }
+
+    .footerAtag {
+        font-size: 10px;
+    }
+
+    .spotifylikedheading img {
+        width: 100px !important;
+    }
+
+    .spotifylikedheading .h1 {
+        font-size: 50px;
+    }
+
+    .card {
+        width: 100px;
+    }
+
+    .card .title {
+        font-size: 12px;
+    }
+
+    .encore-text-small-artist a {
+        font-size: 10px;
+    }
+
+    .card img.circle {
+        height: 100px;
+    }
+
+    .description {
+        font-size: 10px;
+    }
+
+    .playerbar {
+        padding-right: 40px;
+    }
+
+    .volume {
+        flex-direction: column;
+    }
+
+    input[type="range"] {
+        width: 30px !important;
+    }
+}
+
+@media (max-width:360px) {
+    .search-input span input {
+        width: 1vh;
+    }
+
+    .volume button {
+        margin-right: 2px;
+    }
+
+    .play-card .playlist-card-content p {
+        font-size: 10px;
+    }
+
+    .playerbar {
+        padding-right: 120px;
+    }
+
+    .socialmedia {
+        gap: 13px;
+        padding: 0 3rem;
     }
 }
