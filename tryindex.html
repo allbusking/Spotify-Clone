@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="trystyle.css">
+    <link rel="icon" sizes="32x32" type="image/png"
+        href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
+    <title>Spotify - Web Player: Music for everyone </title>
+</head>
+
+<body>
+    <div class="top-nav">
+
+
+
+        <div class="header ">
+            <div class="nav">
+                <div class="logo"><img class="invert" src="assets/logo.svg" alt="logo"></div>
+
+                <div class="top-home ">
+                    <button class="top-home-button scale">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" class=" white e-9960-icon"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732z">
+                            </path>
+                        </svg>
+
+                    </button>
+                    <div class="search">
+                        <div class="search-input search-hover">
+                            <button class="top-home-button search-button">
+                                <svg data-encore-id="icon" role="img" aria-hidden="true"
+                                    class="e-9960-icon e-9960-baseline M9l40ptEBXPm03dU3X1k" data-testid="search-icon"
+                                    viewBox="0 0 24 24"
+                                    style="--encore-icon-height: var(--encore-graphic-size-decorative-larger-3); --encore-icon-width: var(--encore-graphic-size-decorative-larger-3);">
+                                    <path
+                                        d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z">
+                                    </path>
+                                </svg>
+                            </button>
+                            <span>
+                                <input type="text" placeholder="What do you want to play?">
+                            </span>
+                            <button class="top-home-button search-button">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img"
+                                    aria-hidden="true" class="e-9960-icon e-9960-baseline" viewBox="0 0 24 24">
+                                    <path d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2"></path>
+                                    <path
+                                        d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btns">
+                <button class="signup scale">Premium</button>
+                <button class="signup scale">Support</button>
+                <button class="signup scale">Download</button>
+                <div class="line"></div>
+                <button class="install signup scale size">
+                    <img class="" src="assets/install.svg" alt="">
+                    <span>Install App</span>
+                </button>
+                <button class="size signup  scale"><a class="textdecoration  " href="">Sign up</a></button>
+                <a href="home.html"><button class="login scale">Log in </button></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container flex bg-black">
+
+        <!-- left side  -->
+
+        <div class="left rounded">
+
+            <div class="library bg-grey rounded">
+                <div class="heading">
+
+                    <!-- <img class="invert" src="playlist.svg" alt=""> -->
+                    <h3>Your Library</h3>
+
+
+
+                </div>
+
+                <div class="playlist">
+                    <div class="box">
+                        <h3 class="box-m text">Create your first playlist</h3>
+                        <p class="box-m  small">It's easy we will help you</p>
+                        <button>Create playlist</button>
+                    </div>
+                    <div class="box">
+                        <h3 class="box-m text">Let's find some podcasts to follow</h3>
+                        <p class="box-m  small">We'll keep you updated on new episodes</p>
+                        <button>Browse podcasts</button>
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="left-footer">
+                    <div class="left-footer-content">
+                        <div class="footer ">
+                            <div class="cursor-pointer"><a
+                                    href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                            <div class="cursor-pointer"><a href="https://www.spotify.com/jp/privacy/"><span>Safety &
+                                        Privacy Center</span></a>
+                            </div>
+                            <div class="cursor-pointer"><a
+                                    href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy
+                                        Policy</span></a>
+                            </div>
+                            <div class="cursor-pointer"><a
+                                    href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a>
+                            </div>
+                            <div class="cursor-pointer"><a
+                                    href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About
+                                        Ads</span></a></div>
+                            <div class="cursor-pointer"><a
+                                    href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a>
+                            </div>
+                        </div>
+                        <a class="left-footerAtag hovering" href="https://www.spotify.com/legal/cookies-policy/"
+                            target="_blank">Cookies</span></a>
+                    </div>
+
+                    <div class="english">
+                        <button class="englishsvg scale">
+                            <span class="english-svg-span">
+                                <svg class="invert-color" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon"
+                                    role="img" aria-hidden="true" class="e-9960-icon e-9960-baseline"
+                                    viewBox="0 0 16 16"
+                                    style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
+                                    <path
+                                        d="M8.152 16H8a8 8 0 1 1 .152 0m-.41-14.202c-.226.273-.463.713-.677 1.323-.369 1.055-.626 2.496-.687 4.129h3.547c-.06-1.633-.318-3.074-.687-4.129-.213-.61-.45-1.05-.676-1.323-.194-.235-.326-.285-.385-.296h-.044c-.055.007-.19.052-.391.296M4.877 7.25c.062-1.771.34-3.386.773-4.624q.148-.427.329-.806a6.51 6.51 0 0 0-4.436 5.43zm-3.334 1.5a6.51 6.51 0 0 0 4.436 5.43 8 8 0 0 1-.33-.806c-.433-1.238-.71-2.853-.772-4.624zm4.835 0c.061 1.633.318 3.074.687 4.129.214.61.451 1.05.677 1.323.202.244.336.29.391.297l.044-.001c.06-.01.19-.061.385-.296.226-.273.463-.713.676-1.323.37-1.055.626-2.496.687-4.129zm5.048 0c-.061 1.771-.339 3.386-.772 4.624q-.123.353-.268.674a6.5 6.5 0 0 0 4.071-5.298zm3.031-1.5a6.51 6.51 0 0 0-4.071-5.298q.145.322.268.674c.433 1.238.711 2.853.772 4.624z">
+                                    </path>
+                                </svg>
+
+                            </span>
+                            <span class="english-text invert-color">
+                                English
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- right side  -->
+
+        <div class="right rounded  bg-grey">
+
+            <!-- trending songs  -->
+            <div class="bg">
+                <div class="spotifyheading">
+
+                    <h1 class="hovering">Trending songs</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02114e03dcb192736b33a42cb5" alt="">
+                        <span class="title hovering">Aur Mohabbat Kitni Karoon (From "Metro ... In Dino")</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Pritam,</a>
+                                <a class="hovering" href="">Arijit Singh,</a>
+                                <a class="hovering" href="">Sandeep Srivastava</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e026fbb60d6a7e03ccb940a518e" alt="">
+                        <span class="title hovering">Sapphire</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Ed
+                                    sheeran</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02c05d5034282ebb1a0d94a26c" alt="">
+                        <span class="title hovering">Shaky</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Sanju
+                                    Rathod,</a>
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">G-SPXRK</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e0207298ec5df89ec93d784af05" alt="">
+                        <span class="title hovering">Chirapunji</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Nihal
+                                    Sadiq,</a>
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Hana
+                                    Shaah</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02e76275da5828d6f937c3bcf3" alt="">
+                        <span class="title hovering">Jugraafiya - From "Super 30"</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Udit
+                                    Narayan,</a>
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">ShreyaGhoshal</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02a7e251b543c77a6ed356dfbe" alt="">
+                        <span class="title hovering">Saiyaara(From "Saiyaara")</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Udit
+                                    Narayan,</a>
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">ShreyaGhoshal</a>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02003da1c30eae87ca8deafcbd" alt="">
+                        <span class="title hovering">Jab Tu Sajan (From "Aap Jaisakoi")</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Udit
+                                    Narayan,</a>
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">ShreyaGhoshal</a>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- popular artist  -->
+
+            <div class="popularArtist ">
+                <div class="artistheading spotifyheading">
+                    <h1 class="hovering">Popular artists</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca" alt=""
+                            class="circle">
+                        <span class="title hovering">Pritam</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+
+                                <a class="hovering" href="">Artist</a>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab67616100005174b19af0ea736c6228d6eb539c"
+                            alt="">
+                        <span class="title hovering">A.R. Rahman</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab676161000051745ba2d75eb08a2d672f9b69b7"
+                            alt="">
+                        <span class="title hovering">Arijit Singh</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab67616100005174bb4064bef3a825344d5eb79e"
+                            alt="">
+                        <span class="title hovering">Sachin-jegar</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab6761610000517490b6c3d093f9b02aad628eaf"
+                            alt="">
+                        <span class="title hovering">Vishal-Shekhar</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab67616100005174c40600e02356cc86f0debe84"
+                            alt="">
+                        <span class="title hovering">Atif Aslam</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img class="circle" src="https://i.scdn.co/image/ab676161000051740f0be2054fe9594026a6b843"
+                            alt="">
+                        <span class="title hovering">Anirudh Ravichander</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="">Artist</a>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- popularArtist ends -->
+
+            <!-- popular album and singles begin -->
+
+            <div class="popularAlbum ">
+                <div class="artistheading spotifyheading">
+                    <h1 class="hovering">Popular albums and singles</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e026404721c1943d5069f0805f3
+                            " alt="">
+                        <span class="title hovering">Aashiqui 2</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="/artist/09UmIX92EUH9hAK4bxvHx6">Mithoon</a>, <a
+                                    class="hovering" href="/artist/0E02VcvA5p1ndkLdqWD5JB">Ankit Tiwari</a>,
+                                <a class="hovering" href="/artist/2kkQthS9OLpK4UqNWYqoVl">Jeet
+                                    Gannguli</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02707ea5b8023ac77d31756ed4" alt="">
+                        <span class="title hovering">Yeh Jawani Hai Deewani</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering"
+                                    href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Pritam</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02711c1639b4bc0f9978ae77a6" alt="">
+                        <span class="title hovering">Sanam Teri Kasam
+                            (Original Motion Picture Soundtrack)</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="/artist/0sSxphmGskGCKlwB9xa6WU">Himesh
+                                    Reshammiya</a>, <a class="hovering" href="/artist/5sifufajls8Q6k04Y4F8mH">Sameer
+                                    Anjaan</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e0283141000ee8ce3b893a0b425" alt="">
+                        <span class="title hovering">Finding Her</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="/artist/2IKfr1JgPRXmXKAWwrABc6">Kushagra,</a> <a
+                                    class="hovering" href="/artist/1zD9gVg8wPOmVfYxTjMHaT">Bharath,</a> <a
+                                    class="hovering" href="/artist/29S4JzoFUP1MCyMgKd83zM">Saaheal</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02a5183fa4b99bcec1f506418d" alt="">
+                        <span class="title hovering">Young
+                            G.O.A.T</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="/artist/0uOUeC51AxGnP6hB8gurwt">Cheema Y,</a> <a
+                                    class="hovering" href="/artist/0QntOArZgiNHoemAzwJPu5">Gur Sidhu</a>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e02773c5f60bcb309ef8802e4ef" alt="">
+                        <span class="title hovering">Raanjhan (From "Do
+                            Patti")</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="/artist/1SyKki7JI1AZNKwgNMkn25">Sachet-Parampara,</a>
+                                <a class="hovering" href="/artist/1E6arsXf5Fgsnv9YpSzjpE">Parampara
+                                    Tandon</a>
+
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616d00001e021aa5adad8593923dcdf1a7d0" alt="">
+                        <span class="title hovering">Ultimate Love Songs -
+                            Arijit Singh</span>
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <a class="hovering" href="https://open.spotify.com/artist/1wRPtKGflJrBx9BmLsSwlU">Arijit
+                                    Singh</a>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <!-- popularalbum ends -->
+
+            <!-- popular radio starts -->
+
+
+            <div class="popularRadio ">
+                <div class="artistheading spotifyheading">
+                    <h1 class="hovering">Popular radio</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/4YRxDV8wJFPHPTeXepOstw/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Arijit Singh Radio</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With Sachin-Jigar, Atif Aslam, Shaarib Toshi and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/4fEkbug6kZzzJ8eYX6Kbbp/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Sapphire</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With Mustafa Zahid, Atif Aslam, Pritam and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/0oOet2f43PA68X5RxKobEy/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Shaky</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+
+                                <div class="description">With A.R. Rahman, Atif Aslam, Ajay-Atul and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/3gBKY0y3dFFVRqicLnVZYz/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Chirapunji</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With Kumar Sanu, Vinod Rathod, Udit Narayan and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/2FKWNmZWDBZR4dE5KX4plR/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With A.R. Rahman, Atif Aslam, Ajay-Atul and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/1mYsTxnqsietFxj1OgoGbG/en"
+                            alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With Karan Aujla, Shubh, Sidhu Moose Wala and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/7uIbLdzzSEqnX0Pkrb56cR/en-GB"
+                            alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">With Badshah, Guru Randhawa, Harrdy Sandhu and more</div>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- popular radio ends  -->
+
+            <!-- Featured Charts starts -->
+
+
+            <div class="popularArtist ">
+                <div class="artistheading spotifyheading">
+                    <h1 class="hovering">Featured Charts</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Aur Mohabbat Kitni Karoon (From "Metro ... In Dino")</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your weekly update of the most played tracks right now -
+                                    Global.</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_in_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Sapphire</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your weekly update of the most played tracks right now - India.
+                                </div>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Shaky</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your daily update of the most played tracks right now - Global.
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/regional/daily/region_in_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Chirapunji</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your daily update of the most played tracks right now - India.
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_global_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your daily update of the most viral tracks right now - Global.
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://charts-images.scdn.co/assets/locale_en/viral/daily/region_in_default.jpg"
+                            alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Your daily update of the most viral tracks right now - India.
+                                </div>
+
+                            </span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+            <!-- featured charts ends -->
+
+            <!-- india's best starts  -->
+
+
+            <div class="indiasbest ">
+                <div class="artistheading spotifyheading">
+                    <h1 class="hovering">India's Best</h1>
+                    <span class="hovering">Show all</span>
+                </div>
+
+                <div class="cardContainer">
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f0000000212de63da371d63aba8c212aa" alt="">
+                        <!-- <span class="title hovering">Aur Mohabbat Kitni Karoon (From "Metro ... In Dino")</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Hottest tracks from your favourite I-Pop Icons. Cover- Armaan
+                                    Malik</div>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f00000002ac1d414165e3fb3a94f7fc18" alt="">
+                        <!-- <span class="title hovering">Sapphire</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Bollywood Central, jab baje toh seedha dil ke centre mein lage
+                                    🫶🏼 Cover - RRKPK</div>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f00000002a617ef74e226120373bb6463" alt="">
+                        <!-- <span class="title hovering">Shaky</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">India's Rap Scene. Cover - Emiway Bantai</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f00000002ed9af7974cb083220f850e72" alt="">
+                        <!-- <span class="title hovering">Chirapunji</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Finest collection of Tamil Music from the past 10 years Cover :
+                                    Dragon</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f0000000259e9e0d595885276ccf780e6" alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">It's time for some real talk!</div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <button>
+                                <img src="assets/play.svg" alt="">
+                            </button>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f000000027d7ee0e31df842f2d92b9421" alt="">
+                        <!-- <span class="title hovering">Jugraafiya - From "Super 30"</span> -->
+                        <div class="artist">
+                            <span class="encore-text-small-artist">
+                                <div class="description">Most exciting artists from the Indian Indie scene. Cover:
+                                    Divyam Sodhi</div>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- india's best ends  -->
+
+            <!-- footer of right side - playlist side  -->
+            <div class="footerContainer">
+                <hr style="border: none; height: 2px; background-color: #1d1d1d; margin: 40px 0 24px">
+
+                <div class="footerNav ">
+                    <div class="footerSection">
+                        <div class="company doflex  ">
+                            <span class="footerSectionspan">Company</span>
+                            <ul class="doflex">
+                                <a class="footerAtag hovering" href="http://">About</a>
+                                <a class="footerAtag hovering" href="http://">Jobs</a>
+                                <a class="footerAtag hovering" href="http://">For the Record</a>
+
+                            </ul>
+                        </div>
+                        <div class="communities doflex">
+                            <span class="footerSectionspan">Communities</span>
+                            <ul class="doflex ">
+                                <a class="footerAtag hovering" href="http://">For Artists</a>
+                                <a class="footerAtag hovering" href="http://">Developers</a>
+                                <a class="footerAtag hovering" href="http://">Advertising</a>
+                                <a class="footerAtag hovering" href="http://">Investors</a>
+                                <a class="footerAtag hovering" href="http://">Vendors</a>
+                            </ul>
+                        </div>
+                        <div class="usefullinks doflex">
+                            <span class="footerSectionspan">Useful links</span>
+                            <ul class="doflex ">
+                                <a class="footerAtag hovering" href="http://">Support</a>
+                                <a class="footerAtag hovering" href="http://">Free Mobile App</a>
+
+                            </ul>
+                        </div>
+                        <div class="spotifyplans doflex">
+                            <span class="footerSectionspan">Spotify Plans</span>
+                            <ul class="doflex ">
+                                <a class="footerAtag hovering" href="http://">Premium Individual</a>
+                                <a class="footerAtag hovering" href="http://">Preminum Duo</a>
+                                <a class="footerAtag hovering" href="http://">Premium Family</a>
+                                <a class="footerAtag hovering" href="http://">Premium Student</a>
+                                <a class="footerAtag hovering" href="http://">Spotify Free</a>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- social media  -->
+                    <div class="socialmedia ">
+                        <div class="instagram media">
+                            <svg xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true"
+                                class="" viewBox="0 0 16 16"
+                                style="--encore-icon-fill: var(--text-base, #000000); --encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
+                                <path
+                                    d="M8 1.44c2.136 0 2.389.009 3.233.047.78.036 1.203.166 1.485.276.348.128.663.332.921.598.266.258.47.573.599.921.11.282.24.706.275 1.485.039.844.047 1.097.047 3.233s-.008 2.389-.047 3.232c-.035.78-.166 1.204-.275 1.486a2.65 2.65 0 0 1-1.518 1.518c-.282.11-.706.24-1.486.275-.843.039-1.097.047-3.233.047s-2.39-.008-3.232-.047c-.78-.035-1.204-.165-1.486-.275a2.5 2.5 0 0 1-.921-.599 2.5 2.5 0 0 1-.599-.92c-.11-.282-.24-.706-.275-1.486-.038-.844-.047-1.096-.047-3.232s.009-2.39.047-3.233c.036-.78.166-1.203.275-1.485.129-.348.333-.663.599-.921a2.5 2.5 0 0 1 .92-.599c.283-.11.707-.24 1.487-.275.843-.038 1.096-.047 3.232-.047L8 1.441zm.001-1.442c-2.172 0-2.445.01-3.298.048-.854.04-1.435.176-1.943.373a3.9 3.9 0 0 0-1.417.923c-.407.4-.722.883-.923 1.417-.198.508-.333 1.09-.372 1.942S0 5.826 0 8c0 2.172.01 2.445.048 3.298.04.853.174 1.433.372 1.941.2.534.516 1.017.923 1.417.4.407.883.722 1.417.923.508.198 1.09.333 1.942.372s1.126.048 3.299.048 2.445-.01 3.298-.048c.853-.04 1.433-.174 1.94-.372a4.1 4.1 0 0 0 2.34-2.34c.199-.508.334-1.09.373-1.942S16 10.172 16 7.999s-.01-2.445-.048-3.298c-.04-.853-.174-1.433-.372-1.94a3.9 3.9 0 0 0-.923-1.418A3.9 3.9 0 0 0 13.24.42c-.508-.197-1.09-.333-1.942-.371-.851-.041-1.125-.05-3.298-.05z">
+                                </path>
+                                <path
+                                    d="M8 3.892a4.108 4.108 0 1 0 0 8.216 4.108 4.108 0 0 0 0-8.216m0 6.775a2.668 2.668 0 1 1 0-5.335 2.668 2.668 0 0 1 0 5.335m4.27-5.978a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="twitter media">
+                            <svg xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true"
+                                class="" viewBox="0 0 16 16"
+                                style="--encore-icon-fill: var(--text-base, #000000); --encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
+                                <path
+                                    d="M13.54 3.889a2.97 2.97 0 0 0 1.333-1.683 6 6 0 0 1-1.929.738 3 3 0 0 0-.996-.706 3 3 0 0 0-1.218-.254 2.92 2.92 0 0 0-2.143.889 2.93 2.93 0 0 0-.889 2.15q0 .318.08.691a8.5 8.5 0 0 1-3.484-.932A8.5 8.5 0 0 1 1.532 2.54a3 3 0 0 0-.413 1.523q0 .778.361 1.445.36.668.988 1.08a2.9 2.9 0 0 1-1.373-.374v.04q0 1.088.69 1.92a2.97 2.97 0 0 0 1.739 1.048 2.94 2.94 0 0 1-1.365.056 2.94 2.94 0 0 0 1.063 1.5 2.95 2.95 0 0 0 1.77.603 5.94 5.94 0 0 1-3.77 1.302q-.365 0-.722-.048A8.4 8.4 0 0 0 5.15 14q1.358 0 2.572-.361 1.215-.36 2.147-.988a9 9 0 0 0 1.683-1.46q.75-.834 1.234-1.798a9.5 9.5 0 0 0 .738-1.988 8.4 8.4 0 0 0 .246-2.429 6.2 6.2 0 0 0 1.508-1.563q-.84.373-1.738.476">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="facebook media">
+                            <svg xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true"
+                                class="" viewBox="0 0 16 16"
+                                style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
+                                <path
+                                    d="M16 8a8 8 0 1 0-9.25 7.903v-5.59H4.719V8H6.75V6.237c0-2.005 1.194-3.112 3.022-3.112.875 0 1.79.156 1.79.156V5.25h-1.008c-.994 0-1.304.617-1.304 1.25V8h2.219l-.355 2.313H9.25v5.59A8 8 0 0 0 16 8">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="break">
+                    <hr style="border: none; height: 2px; background-color: #1d1d1d; margin: 24px 0px">
+                </div>
+
+                <div class="spotifylast">
+                    © 2025 Spotify AB
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- play bar -->
+
+    <div class="playbar-container">
+        <div class="playbar">
+            <div class="paragraph">
+                <p class="bolder">Preview of spotify</p>
+                <p class="thin">Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+            </div>
+            <div class="signup-spotify btns">
+                <button class="login scale"><a class="loginAtag" href="home.html">Sign up for free</a> </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <!-- <script src="script.js"></script> -->
+
+</body>
+
+</html>

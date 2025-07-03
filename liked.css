@@ -1,0 +1,37 @@
+.bg {
+    background: linear-gradient(#523ca1, #2a1f51) !important;
+}
+.spotifylikedheading{
+    display: flex;
+    padding:30px;
+    align-items: center;
+    gap:30px;
+}
+
+.spotifylikedheading img{
+    width:200px;
+    border-radius: 8px;
+}
+.h1{
+    font-size: 96px;
+    font-weight: 900;
+}
+
+.right{
+    width:100% ;
+}
+
+.right-songlist{
+    padding:20px 30px;
+    min-height: 30vh;
+}
+
+.right-songlist ul li{
+    list-style-type: decimal;
+    color: gray;
+}
+
+.p1{
+    color:white;
+}
+
