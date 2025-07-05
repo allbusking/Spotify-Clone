@@ -54,6 +54,23 @@ async function getSongsCover() {
 
 }
 
+//function for getting the cover of the playlist
+async function getSongsPlaylistCover(){
+  let a = await fetch("http://127.0.0.1:3000/Spotify/songcover/")
+  let response = await a.text();
+  let div = document.createElement("div")
+  div.innerHTML = response;
+  let as = div.getElementsByTagName("a");
+  let songsCover = [];
+  for (let index = 0; index < as.length; index++) {
+    const element = as[index];
+    if (element.href.endsWith(".jpeg") || element.href.endsWith(".png") || element.href.endsWith(".jpg")) {
+      songsCover.push(element.href);
+    }
+  }
+  return songsCover;
+}
+
 const playMusic = (track, pause = true) => {
   // let audio = new Audio(track);
   currentSong.src = track;
@@ -95,34 +112,34 @@ async function main() {
 
 
 
-  //get the list of songCover link
+  //get the list of songHomeCover link
   let songsCover = await getSongsCover();
   console.log(songsCover);
 
-    let songUl = document.querySelector(".bg").getElementsByTagName("div")[1];
+  let songUl = document.querySelector(".bg").getElementsByTagName("div")[1];
+
+  //home div trending songs
+  for (const song of songs) {
+    let matchingCover = songsCover.find(coverUrl => {
+      let baseCoverName = (coverUrl.split("/songcover/HomeCover/")[1]);  // e.g. "blue.jpeg"
+      baseCoverName = baseCoverName.replace(/\.(jpeg|jpg|png)$/i, ""); // removes extension 
+      return baseCoverName === song;
+    });
 
 
-    for (const song of songs) {
-      let matchingCover = songsCover.find(coverUrl => {
-        let baseCoverName = (coverUrl.split("/songcover/HomeCover/")[1]);  // e.g. "blue.jpeg"
-        baseCoverName = baseCoverName.replace(/\.(jpeg|jpg|png)$/i, ""); // removes extension 
-        return baseCoverName === song;
-      });
+    // Fallback if no cover found
+    if (!matchingCover) {
+      matchingCover = "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce007471b8e11006b082d59fa"; // or use a default image URL
+    }
+    else {
+      let fileName = matchingCover.split("/songcover/HomeCover")[1];
+      matchingCover = `http://127.0.0.1:3000/Spotify/songcover/HomeCover/${encodeURIComponent(fileName)}`
 
 
-      // Fallback if no cover found
-      if (!matchingCover) {
-        matchingCover = "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce007471b8e11006b082d59fa"; // or use a default image URL
-      }
-      else {
-        let fileName = matchingCover.split("/songcover/HomeCover")[1];
-        matchingCover = `http://127.0.0.1:3000/Spotify/songcover/HomeCover/${encodeURIComponent(fileName)}`
+    }
 
-
-      }
-
-      songUl.innerHTML = songUl.innerHTML +
-        `
+    songUl.innerHTML = songUl.innerHTML +
+      `
       <div class="card">
                         <div class="play">
                             <button>
@@ -142,23 +159,24 @@ async function main() {
 
 
       `
-    }
+  }
+
 
 
   // Attach an event listener to each song 
   document.querySelector(".cardContainer").querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", () => {
       console.log("THE CARD IS CLICKED");
-        
-        // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
 
-        console.log(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`);
-        
-        playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`, true);
+      // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
 
-      });
+      console.log(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`);
+
+      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`, true);
 
     });
+
+  });
 
   //attach an event listener to play, next and previous
 
@@ -297,25 +315,132 @@ async function main() {
   document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
     console.log(e,);
     currentSong.volume = parseInt(e.target.value) / 100;
+    if(currentSong.volume > 0){
+      document.querySelector(".volume >button> img").src = document.querySelector(".volume >button> img").src.replace("assets/volumeOff.svg", "assets/volume.svg");
+    }
   })
 
   //Add event listener to mute the track
-  document.querySelector(".volume > button").addEventListener("click",(e)=>{
+  document.querySelector(".volume > button").addEventListener("click", (e) => {
     console.log(e.target);
-    if(e.target.src.includes("assets/volume.svg")){
-      e.target.src = e.target.src.replace("assets/volume.svg","assets/volumeOff.svg");
-      currentSong.volume =0;
+    if (e.target.src.includes("assets/volume.svg")) {
+      e.target.src = e.target.src.replace("assets/volume.svg", "assets/volumeOff.svg");
+      currentSong.volume = 0;
       slider.value = 0;
-      updateSliderBackground(slider); 
+      updateSliderBackground(slider);
     }
-    else{
-      e.target.src = e.target.src.replace("assets/volumeOff.svg","assets/volume.svg");
+    else {
+      e.target.src = e.target.src.replace("assets/volumeOff.svg", "assets/volume.svg");
       currentSong.volume = .10;
       slider.value = 10;
       updateSliderBackground(slider);
     }
-    
+
   })
+
+
+
+
+
+
+  
+  let playlistCover = await getSongsPlaylistCover();
+  //playlist 
+  document.querySelector(".playlist").querySelectorAll(".playlist-card").forEach(e => {
+    e.addEventListener("click", (e) => {
+      console.log("THIS IS TARGET : ",e.currentTarget);
+      
+      let target = e.currentTarget;
+      let playlistImg = target.querySelector(".playlist-card-img>img").src;
+
+
+    
+      document.querySelector(".right").innerHTML = "";
+      document.querySelector(".right").innerHTML = document.querySelector(".right").innerHTML +
+        `
+         <div class="bg-right">
+                <div class="spotifylikedheading">
+                    <img src="${playlistImg}" alt="">
+                    <h1 class="h1">Liked songs</h1>
+                    <!-- <span class="hovering">Show all</span> -->
+                </div>
+                
+            </div>
+
+            <div class="right-songlist" id="right-songlist">
+                <ul>
+                   
+                </ul>
+
+      `
+
+      
+      //playlist div change
+      let songsUl = document.querySelector(".right-songlist").getElementsByTagName("ul")[0];
+
+
+      for (const song of songs) {
+        let matchingCover = playlistCover.find(coverUrl => {
+          let baseCoverName = (coverUrl.split("/songcover/")[1]);  // e.g. "blue.jpeg"
+          baseCoverName = baseCoverName.replace(/\.(jpeg|jpg|png)$/i, ""); // removes extension 
+          return baseCoverName === song;
+        });
+
+
+        // Fallback if no cover found
+        if (!matchingCover) {
+          matchingCover = "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce007471b8e11006b082d59fa"; // or use a default image URL
+        }
+        else {
+          let fileName = matchingCover.split("/songcover/")[1];
+          matchingCover = `http://127.0.0.1:3000/Spotify/songcover/${encodeURIComponent(fileName)}`
+
+
+        }
+
+        songsUl.innerHTML = songsUl.innerHTML +
+          `
+    <li>
+                        <div class="playlist-card">
+                            <div class="playlist-card-img">
+                                <img src="${matchingCover}"
+                                    alt="">
+                                <div class="overlay"></div>
+                              <img class="overplay invert" src="assets/play.svg" alt="">
+                            </div>
+                            <div class="playlist-card-content">
+                                <p class="p1 hovering">${decodeURIComponent(song)}</p>
+                                        <p class="p2">
+                                            
+            
+                                           Ayush
+                                        </p>
+                            </div>
+                        </div>
+                    </li>
+
+    `
+      }
+
+      //Attach an event listener to each song 
+      Array.from(document.querySelector(".right-songlist").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+
+          // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
+
+          playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(e.querySelector(".playlist-card-content").firstElementChild.innerHTML)}.mp3`, true);
+
+        });
+
+      });
+
+
+
+    })
+
+  })
+
+
 
 
 }
