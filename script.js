@@ -19,7 +19,7 @@ function secondsToMinutesSeconds(seconds) {
 
 
 async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/Spotify/songs/");
+  let a = await fetch("http://127.0.0.1:3000/Spotify/songs/Liked%20songs/");
   let response = await a.text();
   let div = document.createElement("div")
   div.innerHTML = response;
@@ -28,7 +28,7 @@ async function getSongs() {
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith(".mp3")) {
-      let trim = (element.href.split("/songs/")[1]);
+      let trim = (element.href.split("/songs/Liked%20songs/")[1]);
       songs.push(trim.split(".mp3")[0]);
 
     }
@@ -68,14 +68,14 @@ const playMusic = (track, pause = true) => {
   Globalindex = songs.indexOf(c);
 
 
-  let trim = track.split("/songs/")[1];
+  let trim = track.split("/songs/Liked%20songs/")[1];
   trim = trim.split(".mp3")[0];
   console.log(decodeURIComponent(trim));
 
   document.querySelector(".player-card").getElementsByTagName("div")[2].querySelector(".p1").innerHTML = decodeURIComponent(trim);
 
   let coverMp = track.replace(".mp3", ".jpeg")
-  let cover = coverMp.replace("/songs/", "/songcover/")
+  let cover = coverMp.replace("/songs/Liked%20songs/", "/songcover/")
 
   document.querySelector(".player-card").querySelector(".playlist-card-img").querySelector(".player-card-img").src = cover;
 
@@ -89,7 +89,7 @@ async function main() {
   songs = await getSongs();
   console.log(songs);
 
-  playMusic(`http://127.0.0.1:3000/Spotify/songs/${songs[0]}.mp3`, false);
+  playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${songs[0]}.mp3`, false);
 
 
 
@@ -152,7 +152,7 @@ async function main() {
 
       // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
 
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/${encodeURIComponent(e.querySelector(".playlist-card-content").firstElementChild.innerHTML)}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(e.querySelector(".playlist-card-content").firstElementChild.innerHTML)}.mp3`, true);
 
     });
 
@@ -235,7 +235,7 @@ async function main() {
     let index = songs.indexOf(c);
 
     if ((index - 1) >= 0) {
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/${(songs[index - 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[index - 1])}.mp3`, true);
     }
 
     // else{
@@ -255,7 +255,7 @@ async function main() {
 
 
     if ((index + 1) < songs.length) {
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/${(songs[index + 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[index + 1])}.mp3`, true);
     }
 
     // else{
@@ -271,7 +271,7 @@ async function main() {
     if ((currentSong.duration - currentSong.currentTime < 0.3) && ((Globalindex + 1) < songs.length)) {
       console.log("SONG ENDED");
       // index++;
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/${(songs[Globalindex + 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[Globalindex + 1])}.mp3`, true);
     }
   }
   )
