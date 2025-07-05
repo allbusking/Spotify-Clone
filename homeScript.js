@@ -2,6 +2,7 @@ console.log("Lets write javascript");
 let currentSong = new Audio();
 let songs;
 let Globalindex;
+let currFolder;
 function secondsToMinutesSeconds(seconds) {
   if (isNaN(seconds) || seconds < 0)
     return "0:00";
@@ -18,8 +19,11 @@ function secondsToMinutesSeconds(seconds) {
 
 
 
-async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/Spotify/songs/Liked%20songs/");
+async function getSongs(folder) {
+  currFolder = folder;
+  // console.log("THIS IS FOLDER ",currFolder);
+
+  let a = await fetch(`http://127.0.0.1:3000/Spotify/${folder}`);
   let response = await a.text();
   let div = document.createElement("div")
   div.innerHTML = response;
@@ -27,8 +31,12 @@ async function getSongs() {
   let songs = [];
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
+    // console.log("THIS IS ELEMENT ",element);
+
     if (element.href.endsWith(".mp3")) {
-      let trim = (element.href.split("/songs/Liked%20songs/")[1]);
+      // console.log("THIS IS END WITH ELEMENT ", element.href.split(`${folder}`)[1]);
+
+      let trim = (element.href.split(`${folder}`)[1]);
       songs.push(trim.split(".mp3")[0]);
 
     }
@@ -55,7 +63,7 @@ async function getSongsCover() {
 }
 
 //function for getting the cover of the playlist
-async function getSongsPlaylistCover(){
+async function getSongsPlaylistCover() {
   let a = await fetch("http://127.0.0.1:3000/Spotify/songcover/")
   let response = await a.text();
   let div = document.createElement("div")
@@ -73,6 +81,8 @@ async function getSongsPlaylistCover(){
 
 const playMusic = (track, pause = true) => {
   // let audio = new Audio(track);
+  console.log("ThiS IS TRACK : ", track);
+
   currentSong.src = track;
   if (pause) {
     play.src = "assets/pause.svg";
@@ -85,14 +95,14 @@ const playMusic = (track, pause = true) => {
   Globalindex = songs.indexOf(c);
 
 
-  let trim = track.split("/songs/Liked%20songs/")[1];
+  let trim = track.split(`${currFolder}`)[1];
   trim = trim.split(".mp3")[0];
   console.log(decodeURIComponent(trim));
 
   document.querySelector(".player-card").getElementsByTagName("div")[2].querySelector(".p1").innerHTML = decodeURIComponent(trim);
 
   let coverMp = track.replace(".mp3", ".jpeg")
-  let cover = coverMp.replace("/songs/Liked%20songs/", "/songcover/")
+  let cover = coverMp.replace("/songs/LikedSongs/", "/songcover/")
 
   document.querySelector(".player-card").querySelector(".playlist-card-img").querySelector(".player-card-img").src = cover;
 
@@ -100,13 +110,18 @@ const playMusic = (track, pause = true) => {
 
 }
 
+
+
 async function main() {
 
-  //get the list of all the songs
-  songs = await getSongs();
-  console.log(songs);
 
-  playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${songs[0]}.mp3`, false);
+  let homeSongs = await getSongs("/songs/LikedSongs/");
+
+  //get the list of all the songs
+  songs = await getSongs("/songs/LikedSongs/");
+  console.log("SONGS ", songs);
+
+  playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${songs[0]}.mp3`, false);
 
 
 
@@ -114,12 +129,12 @@ async function main() {
 
   //get the list of songHomeCover link
   let songsCover = await getSongsCover();
-  console.log(songsCover);
+  console.log("Song Cover ", songsCover);
 
   let songUl = document.querySelector(".bg").getElementsByTagName("div")[1];
 
   //home div trending songs
-  for (const song of songs) {
+  for (const song of homeSongs) {
     let matchingCover = songsCover.find(coverUrl => {
       let baseCoverName = (coverUrl.split("/songcover/HomeCover/")[1]);  // e.g. "blue.jpeg"
       baseCoverName = baseCoverName.replace(/\.(jpeg|jpg|png)$/i, ""); // removes extension 
@@ -166,13 +181,13 @@ async function main() {
   // Attach an event listener to each song 
   document.querySelector(".cardContainer").querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", () => {
-      console.log("THE CARD IS CLICKED");
+      // console.log("THE CARD IS CLICKED");
 
       // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
 
-      console.log(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`);
+      console.log(`http://127.0.0.1:3000/Spotify${currFolder}${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`);
 
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${encodeURIComponent(card.querySelector(".title").innerHTML)}.mp3`, true);
 
     });
 
@@ -223,7 +238,7 @@ async function main() {
   //add event listerner for hamburger
   document.querySelector(".hamburger-img").addEventListener("click", () => {
     const open = document.querySelector(".left").style.left;
-    console.log("hi I am hamburger");
+
 
     if (open === "0%") {
       document.querySelector(".left").style.left = "-100%";
@@ -255,7 +270,7 @@ async function main() {
     let index = songs.indexOf(c);
 
     if ((index - 1) >= 0) {
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[index - 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${(songs[index - 1])}.mp3`, true);
     }
 
     // else{
@@ -275,7 +290,7 @@ async function main() {
 
 
     if ((index + 1) < songs.length) {
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[index + 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${(songs[index + 1])}.mp3`, true);
     }
 
     // else{
@@ -289,9 +304,8 @@ async function main() {
   currentSong.addEventListener("timeupdate", () => {
 
     if ((currentSong.duration - currentSong.currentTime < 0.3) && ((Globalindex + 1) < songs.length)) {
-      console.log("SONG ENDED");
       // index++;
-      playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${(songs[Globalindex + 1])}.mp3`, true);
+      playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${(songs[Globalindex + 1])}.mp3`, true);
     }
   }
   )
@@ -315,14 +329,14 @@ async function main() {
   document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
     console.log(e,);
     currentSong.volume = parseInt(e.target.value) / 100;
-    if(currentSong.volume > 0){
+    if (currentSong.volume > 0) {
       document.querySelector(".volume >button> img").src = document.querySelector(".volume >button> img").src.replace("assets/volumeOff.svg", "assets/volume.svg");
     }
   })
 
   //Add event listener to mute the track
   document.querySelector(".volume > button").addEventListener("click", (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     if (e.target.src.includes("assets/volume.svg")) {
       e.target.src = e.target.src.replace("assets/volume.svg", "assets/volumeOff.svg");
       currentSong.volume = 0;
@@ -341,27 +355,97 @@ async function main() {
 
 
 
+  //to display all the playlist
+  // displayAlbums();
+  let a = await fetch(`http://127.0.0.1:3000/Spotify/songs/`);
+  let response = await a.text();
+  let div = document.createElement("div")
+  div.innerHTML = response;
+  let cardContainer = document.querySelector(".playlist");
+  let anchors = div.getElementsByTagName("a");
+  let array = Array.from(anchors);
+  for (let index = 0; index < array.length; index++) {
+    const e = array[index];
+    if (e.href.includes("/songs/")) {
+      let folder = e.href.split("/").slice(-2)[0];
+      let check = e.href.split("/songs/")[1];
 
+    
+
+
+
+      if (check === '.DS_Store') continue ; // 🧹 Skip .DS_Store
+
+      // get the metadata of the folder
+
+      let a = await fetch(`http://127.0.0.1:3000/Spotify/songs/${folder}/info.json`);
+      let response = await a.json();
+      console.log(response);
+
+      cardContainer.innerHTML = cardContainer.innerHTML +
+        `
+
+        <div data-folder="${folder}" class="playlist-card">
+        <div  class="playlist-card-img">
+            <img src="http://127.0.0.1:3000/Spotify/songs/${folder}/cover.jpeg"
+                alt="">
+            <div class="overlay"></div>
+            <img class="overplay invert" src="assets/play.svg" alt="">
+        </div>
+        <div class="playlist-card-content">
+            <p class="p1">${response.title}</p>
+            <p class="p2">
+                <svg data-encore-id="icon" role="img" aria-hidden="false"
+                    class="e-9960-icon e-9960-baseline cSWBDsMjkH62GXIXo6mQ" viewBox="0 0 16 16"
+                    style="--encore-icon-fill: var(--text-bright-accent, #107434); --encore-icon-height: var(--encore-graphic-size-informative-smaller-2); --encore-icon-width: var(--encore-graphic-size-informative-smaller-2);">
+                    <title>Pinned</title>
+                    <path
+                        d="M8.822.797a2.72 2.72 0 0 1 3.847 0l2.534 2.533a2.72 2.72 0 0 1 0 3.848l-3.678 3.678-1.337 4.988-4.486-4.486L1.28 15.78a.75.75 0 0 1-1.06-1.06l4.422-4.422L.156 5.812l4.987-1.337z">
+                    </path>
+                </svg>
+
+                Playlist • Spotify
+            </p>
+        </div>
+    </div>
+
+        `
+    }
+  }
 
   
+
+
+//playlist starts
+
   let playlistCover = await getSongsPlaylistCover();
+
   //playlist 
-  document.querySelector(".playlist").querySelectorAll(".playlist-card").forEach(e => {
-    e.addEventListener("click", (e) => {
+  document.querySelector(".playlist").querySelectorAll(".playlist-card").forEach(e => 
+
+    {
+    e.addEventListener("click", async (e) => {
       console.log("THIS IS TARGET : ",e.currentTarget);
-      
+
+
+
       let target = e.currentTarget;
       let playlistImg = target.querySelector(".playlist-card-img>img").src;
 
+      currFolder = `/songs/${e.currentTarget.dataset.folder}/`;
 
-    
+      let PlaylistTitle = currFolder.split("/songs/")[1];
+      PlaylistTitle = decodeURIComponent(PlaylistTitle.replace("/", ""));
+
+      songs = await getSongs(`/songs/${e.currentTarget.dataset.folder}/`);
+
       document.querySelector(".right").innerHTML = "";
       document.querySelector(".right").innerHTML = document.querySelector(".right").innerHTML +
         `
          <div class="bg-right">
                 <div class="spotifylikedheading">
                     <img src="${playlistImg}" alt="">
-                    <h1 class="h1">Liked songs</h1>
+                    <h1 class="h1">${PlaylistTitle}</h1>
                     <!-- <span class="hovering">Show all</span> -->
                 </div>
                 
@@ -374,7 +458,7 @@ async function main() {
 
       `
 
-      
+
       //playlist div change
       let songsUl = document.querySelector(".right-songlist").getElementsByTagName("ul")[0];
 
@@ -428,7 +512,7 @@ async function main() {
 
           // console.log(e.querySelector(".playlist-card-content").firstElementChild.innerHTML);
 
-          playMusic(`http://127.0.0.1:3000/Spotify/songs/Liked%20songs/${encodeURIComponent(e.querySelector(".playlist-card-content").firstElementChild.innerHTML)}.mp3`, true);
+          playMusic(`http://127.0.0.1:3000/Spotify${currFolder}${encodeURIComponent(e.querySelector(".playlist-card-content").firstElementChild.innerHTML)}.mp3`, true);
 
         });
 
@@ -438,7 +522,12 @@ async function main() {
 
     })
 
+
+
   })
+
+
+
 
 
 
