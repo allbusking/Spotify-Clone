@@ -299,6 +299,23 @@ async function main() {
     currentSong.volume = parseInt(e.target.value) / 100;
   })
 
+  //Add event listener to mute the track
+  document.querySelector(".volume > button").addEventListener("click",(e)=>{
+    console.log(e.target);
+    if(e.target.src.includes("assets/volume.svg")){
+      e.target.src = e.target.src.replace("assets/volume.svg","assets/volumeOff.svg");
+      currentSong.volume =0;
+      slider.value = 0;
+      updateSliderBackground(slider); 
+    }
+    else{
+      e.target.src = e.target.src.replace("assets/volumeOff.svg","assets/volume.svg");
+      currentSong.volume = .10;
+      slider.value = 10;
+      updateSliderBackground(slider);
+    }
+    
+  })
 
 
 }
