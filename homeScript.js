@@ -63,8 +63,8 @@ async function getSongsCover() {
 }
 
 //function for getting the cover of the playlist
-async function getSongsPlaylistCover() {
-  let a = await fetch("http://127.0.0.1:3000/Spotify/songcover/")
+async function getSongsPlaylistCover(folder) {
+  let a = await fetch(`http://127.0.0.1:3000/Spotify/${folder}/songsCover/`)
   let response = await a.text();
   let div = document.createElement("div")
   div.innerHTML = response;
@@ -74,6 +74,8 @@ async function getSongsPlaylistCover() {
     const element = as[index];
     if (element.href.endsWith(".jpeg") || element.href.endsWith(".png") || element.href.endsWith(".jpg")) {
       songsCover.push(element.href);
+      console.log(" THIS IS PLAYLIST SONG COVER ", element.href);
+      
     }
   }
   return songsCover;
@@ -102,8 +104,10 @@ const playMusic = (track, pause = true) => {
   document.querySelector(".player-card").getElementsByTagName("div")[2].querySelector(".p1").innerHTML = decodeURIComponent(trim);
 
   let coverMp = track.replace(".mp3", ".jpeg")
-  let cover = coverMp.replace("/songs/LikedSongs/", "/songcover/")
-
+  
+  
+  let cover = coverMp.replace(`${currFolder}`, `${currFolder}songsCover/`)
+  console.log("THIS IS COVERMP ",cover);
   document.querySelector(".player-card").querySelector(".playlist-card-img").querySelector(".player-card-img").src = cover;
 
 
@@ -418,8 +422,7 @@ async function main() {
 
 //playlist starts
 
-  let playlistCover = await getSongsPlaylistCover();
-
+  
   //playlist 
   document.querySelector(".playlist").querySelectorAll(".playlist-card").forEach(e => 
 
@@ -427,7 +430,7 @@ async function main() {
     e.addEventListener("click", async (e) => {
       console.log("THIS IS TARGET : ",e.currentTarget);
 
-
+      let folder = e.currentTarget.dataset.folder;
 
       let target = e.currentTarget;
       let playlistImg = target.querySelector(".playlist-card-img>img").src;
@@ -438,9 +441,11 @@ async function main() {
       PlaylistTitle = decodeURIComponent(PlaylistTitle.replace("/", ""));
 
       songs = await getSongs(`/songs/${e.currentTarget.dataset.folder}/`);
+      
 
-      document.querySelector(".right").innerHTML = "";
-      document.querySelector(".right").innerHTML = document.querySelector(".right").innerHTML +
+
+      document.querySelector(".rightHandSide").innerHTML = "";
+      document.querySelector(".rightHandSide").innerHTML = document.querySelector(".rightHandSide").innerHTML +
         `
          <div class="bg-right">
                 <div class="spotifylikedheading">
@@ -458,26 +463,28 @@ async function main() {
 
       `
 
-
+      let playlistCover = await getSongsPlaylistCover(`songs/${folder}`);
+      console.log("THIS IS CURRFOLDER SONGS ", `songs/${folder}`);
+      
       //playlist div change
       let songsUl = document.querySelector(".right-songlist").getElementsByTagName("ul")[0];
-
+    
+      
 
       for (const song of songs) {
         let matchingCover = playlistCover.find(coverUrl => {
-          let baseCoverName = (coverUrl.split("/songcover/")[1]);  // e.g. "blue.jpeg"
+          let baseCoverName = (coverUrl.split(`/songs/${folder}/songsCover/`)[1]); // e.g. "blue.jpeg"
           baseCoverName = baseCoverName.replace(/\.(jpeg|jpg|png)$/i, ""); // removes extension 
-          return baseCoverName === song;
+          return (baseCoverName) === song;
         });
 
-
         // Fallback if no cover found
-        if (!matchingCover) {
+        if (!matchingCover) {          
           matchingCover = "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce007471b8e11006b082d59fa"; // or use a default image URL
         }
         else {
-          let fileName = matchingCover.split("/songcover/")[1];
-          matchingCover = `http://127.0.0.1:3000/Spotify/songcover/${encodeURIComponent(fileName)}`
+          let fileName = matchingCover.split(`/songs/${folder}/songsCover/`)[1];
+          matchingCover = `http://127.0.0.1:3000/Spotify/songs/${folder}/songsCover/${encodeURIComponent(fileName)}`
 
 
         }

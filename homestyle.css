@@ -863,6 +863,7 @@ input:focus {
     width: 20px;
     padding-left: 15px;
     display: none;
+    cursor: pointer;
 }
 
 .widthbar {
@@ -961,6 +962,7 @@ input[type="range"]::-ms-fill-upper {
 
     .hamburger-img {
         display: block !important;
+        cursor: pointer;
     }
 
     .widthbar {
@@ -1058,9 +1060,7 @@ input[type="range"]::-ms-fill-upper {
         padding: 8px 10px !important;
     }
 
-    .p2 {
-        display: none;
-    }
+    
 
     .p1 {
         font-size: 14px;
@@ -1167,11 +1167,11 @@ input[type="range"]::-ms-fill-upper {
     }
 
     .spotifylikedheading img {
-        width: 100px !important;
+        width: 90px !important;
     }
 
     .spotifylikedheading .h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .card {
@@ -1204,6 +1204,9 @@ input[type="range"]::-ms-fill-upper {
 
     input[type="range"] {
         width: 30px !important;
+    }
+    .spotifylikedheading{
+        gap: 20px !important;
     }
 }
 
@@ -1238,7 +1241,7 @@ input[type="range"]::-ms-fill-upper {
     display: flex;
     padding:30px;
     align-items: center;
-    gap:30px;
+    gap: 30px;
 }
 
 .spotifylikedheading img{
