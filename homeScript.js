@@ -111,13 +111,10 @@ const playMusic = (track, pause = true) => {
   document.querySelector(".player-card").querySelector(".playlist-card-img").querySelector(".player-card-img").src = cover;
 
 
-
 }
 
 
-
 async function main() {
-
 
   let homeSongs = await getSongs("/songs/LikedSongs/");
 
@@ -313,6 +310,15 @@ async function main() {
     }
   }
   )
+
+  //no next song if Globalindex +1 > songs.length
+  currentSong.addEventListener("ended", () => {
+    // Check if it's the last song
+    if (Globalindex + 1 >= songs.length) {
+      play.src = "assets/play.svg";
+      console.log("Last song ended");
+    }
+  });
 
   //volume slider
   const slider = document.getElementById('volumeSlider');
@@ -534,6 +540,7 @@ async function main() {
   })
 
 
+ 
 
 
 
